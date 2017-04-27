@@ -1,0 +1,320 @@
+li{
+  transition: all ease .4s !important;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+/*************************
+EXAMPLES 2-7 BELOW 
+**************************/
+
+/* EXAMPLE 2 (larger logo) - simply adjust top bottom padding to make logo larger */
+
+.example2 .navbar-brand>img {
+  padding: 7px 15px;
+}
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+      -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+.navbar-alignit .navbar-brand {
+    top: 50%;
+    display: block;
+    position: relative;
+    height: auto;
+    transform: translate(0,-50%);
+    margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+
+
+.navbar-nav>li>.dropdown-menu {
+    z-index: 9999;
+}
+
+body {
+  font-family: "Lato";
+}
+.navbar-default {
+	border-color: #1976d2;
+	border-radius: 0;
+}
+
+/* Carousel Styles */
+.carousel-indicators .active {
+    background-color: #2980b9;
+}
+
+.carousel-inner img {
+    width: 100%;
+    max-height: 460px
+}
+
+.carousel-control {
+    width: 0;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    background-image: none;
+    background-repeat: no-repeat;
+    text-shadow: none;
+}
+
+.carousel-control.left span {
+    padding: 0px;
+}
+
+.carousel-control.right span {
+    padding: 0px;
+}
+
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right, 
+.carousel-control .icon-prev, 
+.carousel-control .icon-next {
+    position: absolute;
+    top: 45%;
+    z-index: 5;
+    display: inline-block;
+  border-radius:2em;
+
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {
+    left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next {
+    right: 0;
+}
+
+.carousel-control.left span,
+.carousel-control.right span {
+    background-color: #000;
+}
+
+.carousel-control.left span:hover,
+.carousel-control.right span:hover {
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+/* Carousel Header Styles */
+.header-text {
+    position: absolute;
+    top: 20%;
+    left: 1.8%;
+    right: auto;
+    width: 96.66666666666666%;
+    color: #fff;
+}
+
+.header-text h2 {
+    font-size: 40px;
+}
+
+.header-text h2 span {
+    background-color: #2980b9;
+    padding: 10px;
+}
+
+.header-text h3 span {
+background: rgba(183,222,237,1);
+    padding: 5px;
+    color: #000;
+    display:flex;
+opacity:32;
+border-radius:2em;
+}
+
+.btn-min-block {
+    min-width: 170px;
+    line-height: 26px;
+}
+
+.btn-theme {
+    color: #fff;
+    background-color: #2dabdd;
+    border: 2px solid #fff;
+    margin-right: 15px;
+
+}
+
+.btn-theme:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.bandaLateral {
+  display: flex;
+  background: url('../../media/fondoBanda02.png') no-repeat scroll 0 0 rgba(0, 0, 0, 0); 
+  cursor: pointer;
+  height: 152px;
+  left: -504px;
+  position: fixed;
+  top: 240px;
+  width: 532px;
+  z-index: 2000;
+}
+@media (max-width: 737px) {
+  .bandaLateral{
+    display: block;
+  }
+}
+
+.bandaLateral img {
+  width: 100%;
+  height: 100%;
+}
+ /*   .bandaLateral div {        
+        float: left;
+        height: 149px;
+        margin: 1px 0;
+        text-align: center;
+        width: 29%;
+        opacity: 0.94;
+    }*/
+    .bandaLateral div:hover {
+        /*background-color: #BBBBBB;*/
+        opacity: 1;
+    }   
+.fondo{background:#FFF;}
+
+.cuadro{
+	background-image: url(assets/img/chruch2.png);
+	background-repeat: repeat;
+    padding-top:1em;
+}
+
+.login-cliente{
+  position: fixed !important;
+  top: 6em;
+  z-index: 111;
+  background: white;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  padding: 0 !important;
+  display: none;
+}
+.login-cliente--header{
+  background: #2dabdd;
+  text-align: center;
+  color: white;
+}
+.login-cliente--header h4{
+  margin: 0;
+  font-size: 1.3em;
+  padding: .3em 0;
+}
+.login-cliente--body{
+  padding: 2em;
+}
+
+.mis-pedidos{
+  position: fixed !important;
+  top: 6em;
+  z-index: 111;
+  background: white;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  display: none;
+  padding: 2em !important;
+}
+#show-new-ped{
+  position: absolute;
+  top: 1em;
+  right: 2em;
+  z-index: 111;
+}
+#form-container{
+  display: none;
+}
+.bottom{
+  margin-bottom: .5em;
+}
+.center-flex{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+ #toast{
+  position: fixed;
+  z-index: 11;
+  top: 6em;
+  right: 2em;
+  background: #424242;
+  color: white;
+  padding: .5em 2em;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1.5px rgba(0,0,0,0.5);
+  display: none;
+}
+.tipos{
+  border-style: solid;
+  border-width: 2px;
+  background: #428bca;
+  padding: 2em 10px;
+}
+
+.pagination li{
+  cursor: pointer;
+}
+.pagination a:hover{
+  color: #428bca !important;
+}
+.pagination .active{
+  cursor: pointer !important;
+}
+.pagination .active a:hover{
+  color: white !important;
+}
+
+.paginador{
+  display: flex;
+}
+.paginador li{
+  padding: 0;
+}
+#content a{	
+  color:#000;
+  transition: all ease .3s;
+}
+#content a:hover{
+  color:#dff0d8;
+  cursor: pointer;
+}
+
+.dataTables_info{
+  display: none;
+}
+.dataTables_length{
+  display: none;
+}
+.dataTables_filter{
+  float: right;
+}
+#dataTables-example_wrapper{
+  overflow-y: scroll;
+  height: 24em;
+}
