@@ -18,15 +18,25 @@ Detalle.prototype = {
 
   existCapsula: function (object) {
     var flag = false
-
+    
+    if ($("#tecnico").val() == object.id) {
+      toast(`El empleado ${object.nombre} no puede ingresar por que es tecnico responsable`)
+      return false
+    }
+    
     if(db.materiales.length === 0){
       return true
     }
+    
 
     for(var i in db.materiales){
       var item = db.materiales[i]
-      if(item.codigo == object.codigo){
-        toast(`Ya existe el material ${item.name}`)
+      if(item.id == object.id){
+        toast(`Ya existe el empleado ${item.nombre}`)
+        return false
+      }
+      else if ($("#tecnico").val() == object.id) {
+        toast(`El empleado ${item.nombre} no puede ingresar por que es tecnico responsable`)
         return false
       }
       else flag = true
@@ -44,38 +54,15 @@ Detalle.prototype = {
       var item = db.materiales[i]
       total = total + parseFloat(item.total)
 
-      alert(JSON.stringify(item))
-
       var template = `<tr>
-        <td>${item.cantidadCliente}</td>
+        <td>${item.id}</td>
         <td>${item.nombre}</td>
-        <td>${item.precio}</td>
-        <td id="${i}_total">${item.total}</td>
+        <td> <button class="btn btn-danger eliminar" data-index="${i}">Eliminar</button></td>
       </tr>`
       this.$body.append(template)
     }
     $("#total").html(total.toFixed(2))
 
-    $(".cant").keyup(function (e) {
-      var cant = e.currentTarget.dataset.cant
-      var index = e.currentTarget.dataset.index
-      var precio = e.currentTarget.dataset.precio
-
-      var input = $(`#${index}_cant`)
-      if(parseInt(cant) < parseInt(this.value) ){
-        input.val("0")
-        toast(`No puede ingresar mas de ${cant}`)
-        input.focus()
-        return false
-      }
-      else {
-        var total = parseFloat(precio) * parseInt(input.val())
-        db.materiales[index].cantidadCliente = parseInt(input.val())
-        db.materiales[index].total = total.toFixed(2)
-        // $(`#${index}_total`).html(total.toFixed(2))
-        this.build()
-      }
-    }.bind(this))
 
     $(".eliminar").on("click", function (e) {
       e.preventDefault()

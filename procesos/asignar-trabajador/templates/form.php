@@ -4,7 +4,7 @@ include '../../conexion/conexion.php';
 
 $clientes = $pdo->query("SELECT * FROM net_cliente");
 $tecnicos = $pdo->query("SELECT * FROM net_usuario");
-$servicios = $pdo->query("SELECT * FROM net_tipo");
+$servicios = $pdo->query("SELECT * FROM vista_ped_cliente WHERE esta_ped=3 OR esta_ped=4");
 
 $hoy = date("Y-m-d");
 $fecha = date("d/m/Y");
@@ -21,10 +21,10 @@ $fecha = date("d/m/Y");
     <input type="hidden" id="id">
     <div class="col-xs-12 bottom">
       <label for="servicio">Servicio</label>
-      <select id="servicio" class="form-control" disabled>
+      <select id="servicio" class="form-control">
         <option value="">Ingrese el servicio</option>
         <?php while($servicio = $servicios->fetch()){ ?>
-        <option value="<?= $servicio['cod_tip'] ?>"><?= $servicio['nom_tip'] ?></option>
+        <option value="<?= $servicio['cod_ped'] ?>"><?= $servicio['nom_tip'] ?></option>
         <?php } ?>
       </select>
     </div>

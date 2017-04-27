@@ -13,18 +13,18 @@
           <h1 class="page-header"><?=$title?></h1>
         </div>
         <div class="col-xs-offset-11" style="margin-bottom:1em;">
-          <!-- <button class="btn btn-outline btn-primary" id="show-form">
+          <button class="btn btn-outline btn-primary" id="show-form">
             <i class="fa fa-plus"></i>
-          </button> -->
+          </button>
         </div>
         <article id="table-container"></article>
-        <article id="form-container">
+        <article id="form-container" style='position: relative;top: -7em;'>
           <?php include "templates/form.php" ?>
         </article>
       </article>
     </section>
     <?php 
-      include "templates/materiales.php";
+      include "templates/empleados.php";
     ?>
   </main>
 

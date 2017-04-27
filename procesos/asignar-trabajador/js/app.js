@@ -5,6 +5,7 @@
 
   $(".confirmar__pedido").on("click", handleConfirmar)
   $(".editar").on("click", handleEditar)
+  $(".eliminar").on("click", handleEliminar)
 
   function handleConfirmar (e) {
     var id = e.currentTarget.dataset.id
@@ -41,6 +42,22 @@
     })
   }
 
+  function handleEliminar (e) {
+    var id = e.currentTarget.dataset.id
+    $.ajax({
+      type: 'POST',
+      url: 'service/eliminar.php',
+      data: { id }
+    })
+    .done(function (snap) {
+      console.log(snap)
+      if (snap == 2) {
+        toast("Se ha eliminado con exito")
+        $("#table-container").load("templates/table.php")
+      }
+    })
+  }
+
   function handleEditar (e) {
     var id = e.currentTarget.dataset.id
     $.ajax({
@@ -52,24 +69,20 @@
     .done(function (snap){
       console.log(snap)
       $("#id").val(id)
-      $("#servicio").val(snap.pedido.serv_ped)
-      $("#cliente").val(snap.pedido.clie_ped)
-      $("#tecnico").val(snap.pedido.tecn_ped)
-      $("#fecha-pedido").val(snap.pedido.fech_ped)
-      $("#fecha-visita").val(snap.pedido.fevis_ped)
-      $("#hora-visita").val(snap.pedido.hovis_ped)
-      // loadMateriales(snap.materiales)
+      $("#servicio").val(snap.pedido.cod_ped)
+      $("#tecnico").val(snap.tecnico.tec_trab)
+      loadMateriales(snap.empleados)
       $("#table-container").slideUp()
       $("#form-container").slideDown()
     })
   }
 
-  function loadMateriales(materiales) {
-    for(var i in materiales){
-      var item = materiales[i]
-      item.total = "0.00"
-      // item.cantidadCliente = "0.00"
-      alert(JSON.stringify(item))
+  function loadMateriales(empleados) {
+    for(var i in empleados){
+      var item = {
+        id: empleados[i].id,
+        nombre: empleados[i].nombre,
+      }
       detalle.insertData(item)
     }
     detalle.build()

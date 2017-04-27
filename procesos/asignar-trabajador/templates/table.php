@@ -1,7 +1,7 @@
 <?php session_start();
 include "../../../conexion/conexion.php";
 $id = $_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"];
-$query = $pdo->query("SELECT * FROM vista_ped_cliente WHERE esta_ped=3");
+$query = $pdo->query("SELECT * FROM vista_ped_cliente WHERE esta_ped=4");
  // AND esta_ped=1
 $index = 0;
 ?>
@@ -23,7 +23,7 @@ $index = 0;
             <tbody>
             <?php
             if($query->rowCount() == 0){
-              echo "<tr><td colspan='3'>No hay pedidos</td></tr>";
+              echo "<tr><td colspan='3'>No hay tareas</td></tr>";
             }
             else{
               while($row = $query->fetch()){
@@ -35,6 +35,12 @@ $index = 0;
                 <td class="space-around">
                   <button class="btn btn-primary editar" data-id="<?=$row["cod_ped"]?>">
                     <i class="fa fa-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger eliminar" data-id="<?=$row["cod_ped"]?>">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                  <button class="btn btn-warning editar" data-id="<?=$row["cod_ped"]?>">
+                    <i class="fa fa-print"></i>
                   </button>
                 </td>
               </tr>

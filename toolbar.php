@@ -67,7 +67,6 @@
           <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Tareas <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
-              <li><a href="../../tareas/grupo-trabajo">0.- Grupos de Trabajo</a></li>
               <li><a href="../../sistema/parametros">1.- Visita Tecnica</a></li>
               <li><a href="../../sistema/tipos-servicios">2.- Mis Tareas</a></li>
               <li><a href="../../sistema/categorias">3.-Pendientes</a></li>
@@ -91,7 +90,7 @@
                       <a href="../../procesos/asignar-trabajador">5.- Asignar equipo</a>
                   </li>
                   <li>
-                      <a href="../../procesos/mis-trabajos">6.- Mis trabajos</a>
+                      <a href="../../procesos/mis-trabajos">6.- Mis Tareass</a>
                   </li>
                   <li>
                       <a href="../../procesos/pedidos-finalizados">7.- Pedidos Finalizados</a>

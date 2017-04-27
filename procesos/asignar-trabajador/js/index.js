@@ -18,11 +18,16 @@
 
   $("#cancelar").on("click", handleCancelar)
   $("#guardar").on("click", handleGuardar)
+  $('#show-form').on('click', handleShowForm)
 
-  // $("#show-capsula").on("click", handleShowCapsula)
-  // $("#closeCapsula").on("click", handleCloseCapsula)
-  // $("#aceptCapsula").on("click", handleAceptCapsula)
-  // $("#confirmar").on("click", handleConfirmar)
+  $("#show-capsula").on("click", handleShowCapsula)
+  $("#closeCapsula").on("click", handleCloseCapsula)
+  $("#aceptCapsula").on("click", handleAceptCapsula)
+
+  function handleShowForm (e) {
+    $("#table-container").slideUp()
+    $("#form-container").slideDown()
+  }
   
   function handleCancelar () {
     $("#form-container").slideUp()
@@ -33,17 +38,18 @@
     $fecha.val("")
     $fechaVisita.val("")
     $horaVisita.val("")
-    // db.materiales = []
-    // $("#materialesbody").html('<td colspan="5" class="text-center">....</td>')
+    db.materiales = []
+    $("#materialesbody").html('<td colspan="3" class="text-center">....</td>')
 
   }
 
   function handleGuardar () {
-      var id = $("#id").val()
+    if (validarAssig()) {
+      var idEditar = $("#id").val()
       $.ajax({
         type: "POST",
         url: "service/guardar.php",
-        data: { id, tecnico: $tecnico.val() }
+        data: { idEditar, id: $("#servicio").val(), tecnico: $tecnico.val(), equipo:  db.materiales }
       })
       .done(function (snap) {
         console.log(snap)
@@ -51,6 +57,57 @@
         handleCancelar()
         // window.open(`./reporte/individual.php?id=${id}`, "_blank","toolbar=yes, scrollbars=yes, resizable=yes, top=50, left=60, width=1200, height=600")
       })
+    }
+  }
+
+  function validarAssig () {
+    if ($("#servicio").val() == "") {
+      toast("Ingrese el servicio")
+      $("#servicio").focus()
+      return false
+    }
+    if ($("#tecnico").val() == "") {
+      toast("Ingrese el tecnico")
+      $("#tecnico").focus()
+      return false
+    }
+    if (db.materiales.length == 0) {
+      toast("Ingrese los empleados")
+      $(".panel-capsula").slideDown()
+      return false
+    }
+    else return true
+  }
+  
+  function handleShowCapsula () {
+    if($("#tecnico").val() == "") {
+      toast("Ingrese primero el tecnico responsable")
+      return false
+    }
+    $(".panel-capsula").slideDown()
+  }
+
+  function handleCloseCapsula () {
+    $(".panel-capsula").slideUp()
+  }
+
+  function handleAceptCapsula () {
+    var capsulaList = document.querySelectorAll(".capsulaList")
+    var capsula = Array.prototype.slice.call(capsulaList)
+    var count = 0
+
+    for (var i in capsula) {
+      var item = capsula[i]
+      if(item.checked === true){
+        var id = item.dataset.id
+        var nombre = item.dataset.name
+        detalle.add({ id, nombre })
+        item.checked = false
+      }
+      else count++
+    }
+    if(capsula.length === count)
+      toast("No ha ingresado ninguna materiales")
   }
 
 
