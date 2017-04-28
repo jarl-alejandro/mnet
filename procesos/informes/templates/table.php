@@ -36,9 +36,6 @@ $index = 0;
                   <button class="btn btn-primary editar" data-id="<?=$row["cod_ped"]?>">
                     <i class="fa fa-pencil"></i>
                   </button>
-                  <button class="btn btn-warning buttonTerminar" data-id="<?=$row["cod_ped"]?>">
-                    <i class="fa fa-terminal"></i>
-                  </button>
                 </td>
               </tr>
             <?php }

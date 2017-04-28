@@ -65,23 +65,13 @@
               <!-- second-level-items -->
           </li>
           <li>
-            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Tareas <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li><a href="../../sistema/parametros">1.- Visita Tecnica</a></li>
-              <li><a href="../../sistema/tipos-servicios">2.- Mis Tareas</a></li>
-              <li><a href="../../sistema/categorias">3.-Pendientes</a></li>
-              <li><a href="">4.-Informes</a></li>
-              <li><a href="">5.- Rendimientos</a></li>
-            </ul>
-          </li>
-          <li>
               <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Procesos<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                   <li>
                       <a href="../../procesos/pedidos">1.- Pedidos</a>
                   </li>
                   <li>
-                      <a href="../../procesos/asignar-tecnico">2.- Asignar tecnico</a>
+                      <a href="../../procesos/asignar-tecnico">2.- Visita Tecnica</a>
                   </li>
                   <li>
                       <a href="../../procesos/mis-pedidos">3.- Mis Pedidos</a>
@@ -90,7 +80,13 @@
                       <a href="../../procesos/asignar-trabajador">5.- Asignar equipo</a>
                   </li>
                   <li>
-                      <a href="../../procesos/mis-trabajos">6.- Mis Tareass</a>
+                      <a href="../../procesos/mis-trabajos">6.- Mis Tareas</a>
+                  </li>
+                  <li>
+                      <a href="../../procesos/pendientes">7.- Pendientes</a>
+                  </li>
+                  <li>
+                      <a href="../../procesos/informes">8.- Informes</a>
                   </li>
                   <li>
                       <a href="../../procesos/pedidos-finalizados">7.- Pedidos Finalizados</a>

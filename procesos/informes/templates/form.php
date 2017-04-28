@@ -28,7 +28,7 @@ $fecha = date("d/m/Y");
         <?php } ?>
       </select>
     </div>
-    <div class="co-xs-12 col-md-6 bottom">
+    <!-- <div class="co-xs-12 col-md-6 bottom">
       <label for="cliente">Cliente</label>
       <select class="form-control" id="cliente" disabled>
         <option value="">Ingrese el cliente</option>
@@ -65,9 +65,9 @@ $fecha = date("d/m/Y");
       <div class="col-xs-9" style="padding: 0;">
         <input type="time" class="form-control" id="hora-visita" placeholder="Ingrese la hora de visita" disabled>
       </div>
-    </div>
+    </div> -->
     <!-- <button class="btn btn-outline btn-warning col-xs-offset-10 bottom" id="show-capsula">Materiales</button> -->
-    <div class="table-responsive">
+    <!-- <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
@@ -81,7 +81,7 @@ $fecha = date("d/m/Y");
           </tr>
         </tbody>
       </table>
-    </div>
+    </div -->
 
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
@@ -102,8 +102,7 @@ $fecha = date("d/m/Y");
     </div>
 
     <div class="col-xs-12 center">
-      <button class="btn btn-primary" style="margin-right:1em;" id="guardar">Termine mi trabajo</button>
-      <button class="btn btn-primary" style="margin-right:1em;display:none" id="confirmar">Confirmar</button>
+      <button class="btn btn-primary" style="margin-right:1em;" id="guardar">Retornar</button>
       <button class="btn btn-warning" id="cancelar">Cancelar</button>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <?php session_start();
 include "../../../conexion/conexion.php";
 $id = $_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"];
-$query = $pdo->query("SELECT * FROM vista_trabajo WHERE tec_trab='$id' AND esta_ped=4");
+$query = $pdo->query("SELECT * FROM vista_ped_cliente WHERE esta_ped=4");
  // AND esta_ped=1
 $index = 0;
 ?>
@@ -36,9 +36,6 @@ $index = 0;
                   <button class="btn btn-primary editar" data-id="<?=$row["cod_ped"]?>">
                     <i class="fa fa-pencil"></i>
                   </button>
-                  <button class="btn btn-warning buttonTerminar" data-id="<?=$row["cod_ped"]?>">
-                    <i class="fa fa-terminal"></i>
-                  </button>
                 </td>
               </tr>
             <?php }
@@ -53,10 +50,10 @@ $index = 0;
   </div>
 </div>
 
-
+<script src="../../assets/scripts/sweetalert2.min.js"></script>
 <script src="../../assets/plugins/dataTables/jquery.dataTables.js"></script>
 <script src="../../assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-<script src="js/detalle.js"></script>
+<!--<script src="js/detalle.js"></script>-->
 <script src="js/app.js"></script>
 <script>
   $(document).ready(function () {

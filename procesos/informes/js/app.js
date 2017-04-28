@@ -23,12 +23,12 @@
       $("#id").val(id)
       document.getElementById('guardarTarea').dataset.id = id
       $("#servicio").val(snap.pedido.cod_ped)
-      $("#tecnico").val(snap.tecnico.tec_trab)
-      $("#cliente").val(snap.pedido.clie_ped)
-      $("#fecha-pedido").val(snap.pedido.fech_ped)
-      $("#fecha-visita").val(snap.pedido.fevis_ped)
-      $("#hora-visita").val(snap.pedido.hovis_ped)
-      loadEmpleados(snap.empleados)
+      // $("#tecnico").val(snap.tecnico.tec_trab)
+      // $("#cliente").val(snap.pedido.clie_ped)
+      // $("#fecha-pedido").val(snap.pedido.fech_ped)
+      // $("#fecha-visita").val(snap.pedido.fevis_ped)
+      // $("#hora-visita").val(snap.pedido.hovis_ped)
+      //loadEmpleados(snap.empleados)
       loadMateriales(snap.materiales)
       $("#table-container").slideUp()
       $("#form-container").slideDown()
@@ -49,6 +49,7 @@
   function loadMateriales(materiales) {
     for(var i in materiales){
       var item = materiales[i]
+      item.devolucion = false
       detalle.insertDataMaterial(item)
     }
     detalle.buildMateria()

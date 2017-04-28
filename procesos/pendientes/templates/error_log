@@ -1,0 +1,1 @@
+[31-Mar-2017 20:26:08 UTC] PHP Fatal error:  Call to a member function rowCount() on a non-object in /home/uejpedu/public_html/www.compartetucodigo.org/mundonet/procesos/mis-pedidos/templates/table.php on line 25

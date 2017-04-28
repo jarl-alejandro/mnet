@@ -24,12 +24,10 @@ Detalle.prototype = {
     if ($("#tecnico").val() == object.id) {
       toast(`El empleado ${object.nombre} no puede ingresar por que es tecnico responsable`)
       return false
-    }
-    
+    }    
     if(db.empleados.length === 0){
       return true
     }
-    
 
     for(var i in db.empleados){
       var item = db.empleados[i]
@@ -45,6 +43,7 @@ Detalle.prototype = {
     }
     return flag
   },
+
   insertData: function (data) {
     db.empleados.push(data)
   },
@@ -85,7 +84,8 @@ Detalle.prototype = {
       total = total + parseFloat(item.total)
 
       var template = `<tr>
-        <td>${item.cant}</td>
+        <td><input onkeypress="numeros()" class="form-control editarRetorno" value="${item.cant}" 
+            data-index="${i}" data-precio="${item.precio}" data-cant="${item.cant}"/></td>
         <td>${item.nombre}</td>
         <td>${item.precio}</td>
         <td id="${i}_total">${item.total}</td>
@@ -94,12 +94,26 @@ Detalle.prototype = {
     }
     $("#total-material").html(total.toFixed(2))
 
-    $(".eliminar").on("click", function (e) {
+    $(".editarRetorno").keyup(function (e) {
       e.preventDefault()
       var index = e.currentTarget.dataset.index
-      db.materiales.splice(index, 1)
-      this.build()
-    }.bind(this))
+      var precio = e.currentTarget.dataset.precio
+      var cantMax = e.currentTarget.dataset.cant
+      var cant = $(this).val()
+      
+      if (cantMax > cant) {
+        var total = parseFloat(precio) * parseInt(cant)
+        $(`#${index}_total`).html(total.toFixed(2))
+        db.materiales[index].cant = cant
+        db.materiales[index].total = total
+        db.materiales[index].devolucion = true
+      }
+      else {
+        toast(`No puede ingresar mas de ${cantMax}`)
+        $(this).val(cantMax)
+      }
+    })
+
   }
 
 }

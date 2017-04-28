@@ -41,13 +41,13 @@ include "conexion/conexion.php";
       <div id="toast"></div>
     <div class="bandaLateral" style="">
       <div  style="width:168px;">
-            <a class="pedidos-cliente"><img src="media/servicio.png"></a>
+            <a id="inicar-cliente"><img src="media/servicio.png"></a>
         </div>
         <div style="width:180px;">
-            <a class="show-new-ped"><img src="media/contacto.png"></a>
+            <a class=""><img src="media/contacto.png"></a>
         </div>
         <div style="width:154px;">
-            <a><img src="media/portafolio.png"></a>
+            <a class="pedidos-cliente show-new-ped"><img src="media/portafolio.png"></a>
         </div>
  </div><!--fin banda lateral-->
  <div class="container-fluid">

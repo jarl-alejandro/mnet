@@ -21,7 +21,6 @@
   $("#closeCapsula").on("click", handleCloseCapsula)
   $("#aceptCapsula").on("click", handleAceptCapsula)
   $("#guardar").on("click", handleGuardar)
-  $("#confirmar").on("click", handleConfirmar)
   
   function handleCancelar () {
     $("#form-container").slideUp()
@@ -68,18 +67,7 @@
 
   function handleGuardar () {
     if(validarForm()) {
-      var id = $("#id").val()
-      $.ajax({
-        type: "POST",
-        url: "service/guardar.php",
-        data: { id, materiales: db.materiales }
-      })
-      .done(function (snap) {
-        console.log(snap)
-        $("#table-container").load("templates/table.php")
-        handleCancelar()
-        window.open(`./reporte/individual.php?id=${id}`, "_blank","toolbar=yes, scrollbars=yes, resizable=yes, top=50, left=60, width=1200, height=600")
-      })
+      $('.panelTerminar').slideDown()
     }
   }
 
@@ -87,6 +75,52 @@
   function validarForm () {
     if(db.materiales.length === 0) {
       toast("Porfavor ingrese los materiales")
+      return false
+    }
+    else return true
+  }
+
+  function clearFormTask () {
+    $('.panelTerminar').slideUp()
+    $('#informe').val("")
+    var cheked = Array.prototype.slice.call(document.querySelectorAll('[name="calificar"]'))
+    for (var i in cheked) {
+      cheked[i].checked = false
+    }
+  } 
+
+  $("#cancelarPanelTarea").on('click', function (e) {
+    e.preventDefault()
+    clearFormTask()
+  })
+
+  $('#guardarTarea').on('click', function (e) {
+    var id = e.currentTarget.dataset.id
+    var calificar = document.querySelector('[name="calificar"]:checked').value
+    
+    if (validarTask()) {
+      $.ajax({
+        type: "POST",
+        url: "service/guardar.php",
+        data: { id, informe: $('#informe').val(), calificar }
+      })
+      .done(function (snap) {
+        console.log(snap)
+        $("#table-container").load("templates/table.php")
+        clearFormTask()
+        window.open(`./reporte/individual.php?id=${id}`, "_blank","toolbar=yes, scrollbars=yes, resizable=yes, top=50, left=60, width=1200, height=600")
+      })
+    }
+  })
+
+  function validarTask () {    
+    if (document.querySelector('[name="calificar"]:checked') == null) {
+      toast('Calique el trabajo')
+      return false
+    }
+    if ($('#informe').val() == "") {
+      $('#informe').focus()
+      toast("Porfavor ingreseel informe")
       return false
     }
     else return true

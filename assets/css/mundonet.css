@@ -86,3 +86,20 @@ th{
 .no-margin{
   margin: 0 !important;
 }
+.panelTerminar{
+  padding: 0;
+  position: fixed;
+  top: 6em;
+  display: none;
+}
+.around-flex{
+  display: flex;
+  justify-content: space-around;
+}
+.center-flex-boton{
+  display: flex;
+  justify-content: center;
+}
+.center-flex-boton button:last-child{
+  margin-left: 1em;
+}
