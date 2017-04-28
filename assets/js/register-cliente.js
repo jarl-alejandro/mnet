@@ -17,8 +17,8 @@
     $('#clienteFomrRegister').slideDown()
   }
 
-  $("#guardar").on("click", handelGuardar)
-  $("#cancelar").on("click", handelCancelar)
+  $("#guardarClienteNew").on("click", handelGuardar)
+  $("#cancelarClienteNew").on("click", handelCancelar)
 
   function handleShowForm () {
     $("#clienteFomrRegister").slideDown()
@@ -47,8 +47,7 @@
   }
 
   function handelCancelar () {
-    $("#table-container").slideDown()
-    $("#form-container").slideUp()
+    $("#clienteFomrRegister").slideUp()
     $cedula.val("")
     $nombre.val("")
     $apellido.val("")

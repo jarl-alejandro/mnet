@@ -59,8 +59,8 @@
           maxlength="100" id="passwordRegister">
     </div>
     <div class="col-xs-12 center">
-      <button class="btn btn-primary" style="margin-right:1em;" id="guardar">Guardar</button>
-      <button class="btn btn-danger" id="cancelar">Cancelar</button>
+      <button class="btn btn-primary" style="margin-right:1em;" id="guardarClienteNew">Guardar</button>
+      <button class="btn btn-danger" id="cancelarClienteNew">Cancelar</button>
     </div>
   </div>
 </div>

@@ -4,6 +4,10 @@ include "../../../conexion/conexion.php";
 $query = $pdo->query("SELECT * FROM net_bodega");
 $index = 0;
 ?>
+<div class="col-xs-offset-9 col-md-offset-11" style="margin-bottom:1em;">
+  <button class="btn btn-success print"><i class="fa fa-print"></i></button>
+</div>
+
 <label class="input-group col-xs-10 col-xs-offset-1">
   <input style="height: 3.2em;" 
       placeholder="Ingreser lo que desea buscar" type="search" class="form-control input-sm" 
@@ -14,7 +18,6 @@ $index = 0;
     </button>
   </span>
 </label>
-
 <?php if($query->rowCount() == 0){ 
     echo "<h2 class='text-center'>No hay bodega</h2>";
 }?>
@@ -39,6 +42,8 @@ $index = 0;
           <li class="divider"></li>
           <li><a href="#" style="font-size: 1.4em;" class="eliminar" 
           data-id="<?=$row["cod_bode"]?>">Eliminar <i class="fa fa-trash-o"></i></a></li>
+          <li><a href="#" style="font-size: 1.4em;" class="inidividual" 
+          data-id="<?=$row["cod_bode"]?>">Imprimir <i class="fa fa-print"></i></a></li>
         </ul>
       </div>
 

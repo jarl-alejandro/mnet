@@ -16,7 +16,8 @@ $index = 0;
 							<tr>
 								<th width="10%">#</th>
 								<th width="70%">CLIENTES</th>
-								<th width="20%">ACCIONES</th>
+								<th width="20%">ACCIONES
+									<button class="btn btn-success print"><i class="fa fa-print"></i></button></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -34,6 +35,7 @@ $index = 0;
 								<td class="space-around">
 									<button class="btn btn-primary editar" data-id="<?=$row["ced_cli"]?>"><i class="fa fa-pencil"></i></button>
 									<button class="btn btn-danger eliminar" data-id="<?=$row["ced_cli"]?>"><i class="fa fa-trash-o"></i></button>
+									<button class="btn btn-warning inidividual" data-id="<?=$row["ced_cli"]?>"><i class="fa fa-print"></i></button>
 								</td>
 							</tr>
 						<?php }
