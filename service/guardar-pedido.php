@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+date_default_timezone_set('America/Guayaquil');
 include '../conexion/conexion.php';
 
 function setCode($letra=NULL, $digitos=NULL, $tabla=NULL, $fila){
@@ -43,7 +43,7 @@ if(isset($_POST["servicio"])){
   $codigo = setCode('PE-', 8, 'net_pedido', 'cont_pedido');
   $cliente = $_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"];
   $servicio = $_POST["servicio"];
-  $fecha = $_POST["fecha"];
+  $fecha = date("Y-m-d");
   $fechaVisita = $_POST["fechaVisita"];
   $horaVisita = $_POST["horaVisita"];
   $estado = 0;

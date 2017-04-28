@@ -6,7 +6,6 @@
   var $servicio = $("#servicio")
   var $cliente = $("#cliente")
   var $tecnico = $("#tecnico")
-  var $fecha = $("#fecha-pedido")
   var $fechaVisita = $("#fecha-visita")
   var $horaVisita = $("#hora-visita")
 
@@ -43,7 +42,6 @@
     $servicio.val("")
     $cliente.val("")
     $tecnico.val("")
-    $fecha.val("")
     $fechaVisita.val("")
     $horaVisita.val("")
   }
@@ -53,7 +51,7 @@
       $.ajax({
         url: "service/guardar-pedido.php",
         data: { servicio: $servicio.val(), cliente: $cliente.val(),
-                fecha: $fecha.val(), fechaVisita: $fechaVisita.val(), horaVisita: $horaVisita.val()
+                fechaVisita: $fechaVisita.val(), horaVisita: $horaVisita.val()
               },
         type: "POST"
       })
@@ -78,11 +76,6 @@
     if($cliente.val() === "") {
       toast("Ingrese el cliente")
       $cliente.focus()
-      return false
-    }
-    if($fecha.val() === "") {
-      toast("Ingrese el fecha")
-      $fecha.focus()
       return false
     }
     if($fechaVisita.val() === "") {

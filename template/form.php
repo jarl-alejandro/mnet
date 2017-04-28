@@ -47,13 +47,13 @@ $form = 'pedido';
         </option>
         <?php } ?>
       </select>
-    </div>-->
+    </div>
 
     <div class="co-xs-12 col-md-6 bottom">
       <label for="fecha-pedido">Ingrese la fecha de pedido</label>
       <input type="text" class="form-control fechaPicker" id="fecha-pedido" 
         placeholder="Ingrese la fecha de pedido" style="background:white;border-color:#acacad;">
-    </div>
+    </div>-->
     <div class="co-xs-12 col-md-6 bottom">
       <label for="fecha-visita">Ingrese la fecha de visita</label>    
       <input type="text" class="form-control fechaPicker" id="fecha-visita" 
