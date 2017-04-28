@@ -3,8 +3,10 @@
 
   var $email = $('#email')
   var $password = $('#password')
+  //show-new-ped
 
-  $('#inicar-cliente').on('click', handleIniciarCliente)
+
+  $('.inicar-cliente').on('click', handleIniciarCliente)
   $('#cancelar').on('click', handleCancelar)
   $('#ingresar').on('click', handleIngresar)
 

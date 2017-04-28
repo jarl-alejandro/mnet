@@ -3,14 +3,15 @@
 ?>
 
 <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 mis-pedidos">
-  <button class="btn btn-circle ripple-effect btn-raised btn-info" class="show-new-ped">
+  <button class="btn btn-circle ripple-effect btn-raised btn-info show-new-ped">
     <i class="fa fa-pencil" aria-hidden="true"></i>
   </button>
   <div id="table-misPedidos"></div>
-  <article id="form-container">
+  
+  <article id="form-container" class="col-xs-10 col-xs-offset-1">
     <?php include "template/form.php" ?>
   </article>
-  <div style="display:flex;justify-content:center col-xs-12">
+  <div style="display:flex;justify-content:center:flex-wrap:wrap;" class="col-xs-12">
     <button class="btn ripple-effect btn-raised btn-danger col-xs-5 col-xs-offset-3" id="cerrar-ped">Cerrar</button>
   </div>
 </section>

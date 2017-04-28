@@ -41,13 +41,13 @@ include "conexion/conexion.php";
       <div id="toast"></div>
     <div class="bandaLateral" style="">
       <div  style="width:168px;">
-            <a id="inicar-cliente"><img src="media/servicio.png"></a>
+            <a class="inicar-cliente"><img src="media/servicio.png"></a>
         </div>
         <div style="width:180px;">
-            <a class=""><img src="media/contacto.png"></a>
+            <a class="register-cliente"><img src="media/contacto.png"></a>
         </div>
         <div style="width:154px;">
-            <a class="pedidos-cliente show-new-ped"><img src="media/portafolio.png"></a>
+            <a class="pedidos-cliente"><img src="media/portafolio.png"></a>
         </div>
  </div><!--fin banda lateral-->
  <div class="container-fluid">
@@ -90,7 +90,7 @@ include "conexion/conexion.php";
          <li><a href="#">Portafolio</a></li>
          <li><a href="#">Contactos</a></li>
          <?php if(!isset($_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"])){ ?>
-            <li><a href="#" id="inicar-cliente">Inicar Sesión</a> </li>
+            <li><a href="#" class="inicar-cliente">Inicar Sesión</a> </li>
             <li><a href="index_sistema.php">Sistema</a></li>
          <?php } else{ ?>
             <li><a href="#" class="pedidos-cliente">Pedios</a></li>
@@ -361,8 +361,11 @@ Venta de Computadoras, partes y accesorios.
     include 'template/pedidos.php';
   }
   ?>
-
-</section><!-- area de trabajo-->
+  <article id="clienteFomrRegister" class="col-xs-10 col-xs-offset-1 col-md-7 col-md-offset-3">
+    <?php include "template/formCliente.php" ?>
+  </article>
+</section>
+<!-- area de trabajo-->
 
 
 
@@ -381,7 +384,7 @@ Venta de Computadoras, partes y accesorios.
   <script src="assets/scripts/validaciones.js"></script>
   <script src="assets/scripts/login.js"></script>
   <script src="assets/scripts/pedidos.js"></script>
-
+  <script src='assets/js/register-cliente.js'></script>
     <script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
