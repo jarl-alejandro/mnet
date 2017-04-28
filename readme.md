@@ -1,3 +1,10 @@
 Cambiar en conexion la varible false a true 
 
-falatan reportes de proceso y estadisticas
+reporetes terminado
+faltan estadisticas
+
+
+Trabajos terminados
+Mejor empleado
+Mejores clientes
+Rotacion de imventarios
