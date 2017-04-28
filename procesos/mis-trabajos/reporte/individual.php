@@ -58,6 +58,11 @@ $id = $_GET["id"];
 $pedido_query = $pdo->query("SELECT * FROM vista_pedidos WHERE cod_ped='$id'");
 $pedido = $pedido_query->fetch();
 
+$materiales_query = $pdo->query("SELECT * FROM vista_trabajo WHERE cod_ped='$id'");
+$fetch = $materiales_query->fetch();
+
+//////////////tecnico
+
 $pdf->SetX(10);
 $pdf->SetFont('Arial', '',10);
 
@@ -65,7 +70,7 @@ $pdf->Cell(200, 6.5, utf8_decode("SERVICIO: " . $pedido["nom_tip"]), 0, 'C');
 $pdf->Ln();
 
 $pdf->Cell(150, 6.5, utf8_decode("CLIENTE: " . $pedido["cliente"]), 0, 'C');
-$pdf->Cell(150, 6.5, utf8_decode("TECNICO: " . $pedido['tecnico']), 0, 'C');
+$pdf->Cell(150, 6.5, utf8_decode("TECNICO: " . $fetch['tecnico']), 0, 'C');
 $pdf->Ln();
 
 $pdf->Cell(150, 6.5, "FECHA DE PEDIDO: " . $pedido["fech_ped"], 0, 'C');

@@ -15,7 +15,7 @@ class PDF extends FPDF {
     $this->SetTextColor(0, 0, 0);
     $this->Ln(1);
     $this->Line(2, 42, 295, 42);
-    $this->Text(110, 54, 'MIS VISITA TECNICA');
+    $this->Text(110, 54, 'LISTADO DE PEDIDOS');
     $this->Ln(25);
   }
 
@@ -25,7 +25,7 @@ class PDF extends FPDF {
     $this->SetLineWidth(.3);
     $this->SetFont('Arial', 'B');
 
-    $w = array(10, 30, 30, 150, 70);
+    $w = array(20, 40, 40, 190);
     for ($i = 0; $i < count($header); $i++)
       $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', true);
 
@@ -56,28 +56,23 @@ $a = "Ensamblaje, Mantenimiento y Reparacion de Compu";
 $b = substr($a, -47);
 //echo $b;
 
-$header = array('#', 'FECHA VISITA', 'HORA VISITA', 'DETALLE', 'TECNICO');
-$pdf->SetFont('Arial', 'B', 11);
+$header = array('#', 'FECHA VISITA', 'HORA VISITA', 'DETALLE');
 
 $pdf -> SetX(5);
 $pdf->SetFont('Arial', '',12);
 $pdf->TablaColores($header);
 
-$id = $_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"];
-
-$query = $pdo->query("SELECT * FROM vista_pedidos WHERE esta_ped!=4 AND ced_usu='$id' ");
+$query = $pdo->query("SELECT * FROM vista_pedidos");
 $index = 0;
-$pdf->SetFont('Arial', '', 9);
 
 foreach ($query as $detail) {
   $pdf -> SetX(5);
   $index++;
   
-  $pdf->Cell(10, 6.5, $index, 1, 'C');
-  $pdf->Cell(30, 6.5, $detail["fevis_ped"], 1, 'C');
-  $pdf->Cell(30, 6.5, $detail["hovis_ped"], 1, 'C');
-  $pdf->Cell(150, 6.5, utf8_decode($detail["cliente"]." - ".$detail["nom_tip"]), 1, 'C');
-  $pdf->Cell(70, 6.5, utf8_decode($detail["tecnico"]), 1, 'C');
+  $pdf->Cell(20, 6.5, $index, 1, 'C');
+  $pdf->Cell(40, 6.5, $detail["fevis_ped"], 1, 'C');
+  $pdf->Cell(40, 6.5, $detail["hovis_ped"], 1, 'C');
+  $pdf->Cell(190, 6.5, utf8_decode($detail["cliente"]." - ".$detail["nom_tip"]), 1, 'C');
   $pdf->Ln();
 
 }

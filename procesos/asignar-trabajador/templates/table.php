@@ -17,7 +17,9 @@ $index = 0;
               <tr>
                 <th width="10%">#</th>
                 <th width="70%">PEDIDOS</th>
-                <th width="20%">ACCIONES</th>
+                <th width="20%">ACCIONES
+                  	<button class="btn btn-success print"><i class="fa fa-print"></i></button>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -39,7 +41,7 @@ $index = 0;
                   <button class="btn btn-danger eliminar" data-id="<?=$row["cod_ped"]?>">
                     <i class="fa fa-trash-o"></i>
                   </button>
-                  <button class="btn btn-warning editar" data-id="<?=$row["cod_ped"]?>">
+                  <button class="btn btn-warning inidividual" data-id="<?=$row["cod_ped"]?>">
                     <i class="fa fa-print"></i>
                   </button>
                 </td>
