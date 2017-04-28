@@ -35,7 +35,17 @@
     <div class="col-xs-12 col-md-5 bottom">
      <label for="direccion">Ingrese el direccion del usuario</label>
       <input type="text" class="form-control" placeholder="Ingrese la direccion" 
-          maxlength="100" id="direccion" onkeypress="textos()">
+          maxlength="100" id="direccion">
+    </div>
+
+    <div class="col-xs-12 col-md-5 bottom">
+     <label for="roles">Roles</label>
+      <select id="roles" class="form-control">
+        <option value="Administrador">Administrador</option>
+        <option value="Tecnico">Tecnico</option>
+        <option value="Secretaria">Secretaria</option>
+        <option value="Contador">Contador</option>
+      </select>
     </div>
     <div class="col-xs-12 center">
       <button class="btn btn-primary" style="margin-right:1em;" id="guardar">Guardar</button>

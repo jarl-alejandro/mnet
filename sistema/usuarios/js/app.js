@@ -22,6 +22,7 @@
       $("#telefono").val(snap.tel_usu)
       $("#celular").val(snap.cel_usu)
       $("#direccion").val(snap.dir_usu)
+      $("#roles").val(snap.rol_usu)
 
       $("#table-container").slideUp()
       $("#form-container").slideDown()

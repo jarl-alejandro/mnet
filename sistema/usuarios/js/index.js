@@ -8,6 +8,7 @@
   var $telefono = $("#telefono")
   var $celular = $("#celular")
   var $direccion = $("#direccion")
+  var $roles = $("#roles")
 
   $("#table-container").load("templates/table.php")
 
@@ -49,6 +50,7 @@
     $telefono.val("")
     $celular.val("")
     $direccion.val("")
+    $roles.val("")
      $("#id").val("")
   }
 
@@ -62,6 +64,7 @@
       telefono: $telefono.val(),
       celular: $celular.val(),
       direccion: $direccion.val(),
+      roles: $roles.val()
     }
   }
 
@@ -110,7 +113,12 @@
       $direccion.focus()
       return false
     }
+    if($roles.val() === "" || $roles.val() === "0"){
+      toast("Ingrese el rol")
+      $roles.focus()
+      return false
+    }
     else return true
   }
-
+$
 })()

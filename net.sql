@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2017 a las 06:28:17
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 7.0.9
+-- Tiempo de generación: 28-04-2017 a las 16:16:27
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -124,6 +124,7 @@ CREATE TABLE `net_cliente` (
 --
 
 INSERT INTO `net_cliente` (`ced_cli`, `nom_cli`, `ape_cli`, `emi_cli`, `tel_cli`, `cel_cli`, `dir_cli`, `pass_cli`) VALUES
+('1302064942', 'Joel', 'Rivas', 'joel@gmail.com', '3984444444', '9836244444', 'Union Civica', 'e17ae9f0780022144ef4531b10ef14e018407386'),
 ('1718760901', 'Alejandro', 'Rivas', 'jarlalejor@gmail.com', '0927398724', '7675326452', 'Union Civica', '0472b31141ad5bafcb7d8c461fd3f063995612f5');
 
 -- --------------------------------------------------------
@@ -202,7 +203,7 @@ CREATE TABLE `net_params` (
 --
 
 INSERT INTO `net_params` (`id_param`, `iva_param`, `fact_param`, `cadu_param`, `cont_tipo`, `cont_categ`, `cont_bode`, `cont_servi`, `cont_capsula`, `cont_provedor`, `cont_image`, `cont_pedido`) VALUES
-(1, 14, 30, 5, 12, 15, 21, 11, 15, 6, 23, 9);
+(1, 14, 30, 5, 12, 15, 21, 11, 15, 6, 23, 10);
 
 -- --------------------------------------------------------
 
@@ -228,6 +229,7 @@ CREATE TABLE `net_pedido` (
 --
 
 INSERT INTO `net_pedido` (`cod_ped`, `serv_ped`, `clie_ped`, `tecn_ped`, `fech_ped`, `fevis_ped`, `hovis_ped`, `esta_ped`, `es_factura`, `infor_ped`) VALUES
+('PE-000010', 'TP-00012', '1302064942', NULL, '2017-04-28', '2017-04-28', '02:02:00', 0, 0, NULL),
 ('PE-00004', 'TP-00007', '1718760901', '1234567890', '2017-03-31', '2017-03-31', '14:40:00', 5, 1, NULL),
 ('PE-00005', 'TP-00007', '1718760901', '1234567890', '2017-04-10', '2017-04-10', '13:37:00', 3, 0, NULL),
 ('PE-00007', 'TP-00008', '1718760901', '1234567890', '2017-01-25', '2017-01-25', '19:34:00', 4, 0, 'Se daño los equipos'),
@@ -320,17 +322,18 @@ CREATE TABLE `net_usuario` (
   `tel_usu` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `cel_usu` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `dir_usu` varchar(140) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `pass_usu` varchar(140) COLLATE utf8_spanish_ci NOT NULL
+  `pass_usu` varchar(140) COLLATE utf8_spanish_ci NOT NULL,
+  `rol_usu` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `net_usuario`
 --
 
-INSERT INTO `net_usuario` (`ced_usu`, `nom_usu`, `ape_usu`, `emi_usu`, `tel_usu`, `cel_usu`, `dir_usu`, `pass_usu`) VALUES
-('1234567890', 'admin', 'admin', 'admin@admin.com', '1234567890', '1234567890', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997'),
-('1302064942', 'Joel', 'Rivas', 'jarl.alejandro@gmail.com', '3887462222', '6777777777', 'alkshiudwer', 'cb44e1e1866061e0cbd1c8069e3dc794ba4dc12a'),
-('1718760901', 'Alejandro', 'Rivas', 'jarlalejor@gmail.com', '0937497239', '8236846823', 'ewwerwerwq', '0472b31141ad5bafcb7d8c461fd3f063995612f5');
+INSERT INTO `net_usuario` (`ced_usu`, `nom_usu`, `ape_usu`, `emi_usu`, `tel_usu`, `cel_usu`, `dir_usu`, `pass_usu`, `rol_usu`) VALUES
+('1234567890', 'admin', 'admin', 'admin@admin.com', '1234567890', '1234567890', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Administrador'),
+('1302064942', 'Joel', 'Rivas', 'jarl.alejandro@gmail.com', '3887462222', '6777777777', 'alkshiudwer', 'cb44e1e1866061e0cbd1c8069e3dc794ba4dc12a', 'Tecnico'),
+('1718760901', 'Alejandro', 'Rivas', 'jarlalejor@gmail.com', '3242342342', '2342342342', 'serfewer', '0472b31141ad5bafcb7d8c461fd3f063995612f5', 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -358,6 +361,7 @@ INSERT INTO `trabajo_detalle` (`cod_id`, `cod_trab`, `id_empl`) VALUES
 
 --
 -- Estructura Stand-in para la vista `vista_bodega`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_bodega` (
 `cod_bode` varchar(11)
@@ -379,6 +383,7 @@ CREATE TABLE `vista_bodega` (
 
 --
 -- Estructura Stand-in para la vista `vista_capsula`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_capsula` (
 `cod_capsu` varchar(11)
@@ -392,6 +397,7 @@ CREATE TABLE `vista_capsula` (
 
 --
 -- Estructura Stand-in para la vista `vista_capsu_det`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_capsu_det` (
 `id_capsu` int(11)
@@ -409,6 +415,7 @@ CREATE TABLE `vista_capsu_det` (
 
 --
 -- Estructura Stand-in para la vista `vista_detalle_pedido`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_detalle_pedido` (
 `id_ped` int(11)
@@ -426,6 +433,7 @@ CREATE TABLE `vista_detalle_pedido` (
 
 --
 -- Estructura Stand-in para la vista `vista_det_pedido`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_det_pedido` (
 `id_ped` int(11)
@@ -441,6 +449,7 @@ CREATE TABLE `vista_det_pedido` (
 
 --
 -- Estructura Stand-in para la vista `vista_pedidos`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_pedidos` (
 `cod_ped` varchar(11)
@@ -462,6 +471,7 @@ CREATE TABLE `vista_pedidos` (
 
 --
 -- Estructura Stand-in para la vista `vista_ped_cliente`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_ped_cliente` (
 `cod_ped` varchar(11)
@@ -481,6 +491,7 @@ CREATE TABLE `vista_ped_cliente` (
 
 --
 -- Estructura Stand-in para la vista `vista_trabajo`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_trabajo` (
 `tec_trab` varchar(13)
@@ -501,6 +512,7 @@ CREATE TABLE `vista_trabajo` (
 
 --
 -- Estructura Stand-in para la vista `vista_trabajores`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vista_trabajores` (
 `id_empl` varchar(13)
@@ -516,7 +528,7 @@ CREATE TABLE `vista_trabajores` (
 --
 DROP TABLE IF EXISTS `vista_bodega`;
 
-CREATE VIEW `vista_bodega`  AS  select `net_bodega`.`cod_bode` AS `cod_bode`,`net_bodega`.`nom_bode` AS `nom_bode`,`net_bodega`.`cost_bode` AS `cost_bode`,`net_bodega`.`cant_bode` AS `cant_bode`,`net_bodega`.`max_bode` AS `max_bode`,`net_bodega`.`min_bode` AS `min_bode`,`net_bodega`.`preci_bode` AS `preci_bode`,`net_bodega`.`vent1_bode` AS `vent1_bode`,`net_bodega`.`vent2_bode` AS `vent2_bode`,`net_bodega`.`vent3_bode` AS `vent3_bode`,`net_bodega`.`imag_bode` AS `imag_bode`,`net_categoria`.`cod_cate` AS `cod_cate`,`net_categoria`.`nom_cate` AS `nom_cate` from (`net_bodega` join `net_categoria` on((`net_bodega`.`cate_bode` = `net_categoria`.`cod_cate`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_bodega`  AS  select `net_bodega`.`cod_bode` AS `cod_bode`,`net_bodega`.`nom_bode` AS `nom_bode`,`net_bodega`.`cost_bode` AS `cost_bode`,`net_bodega`.`cant_bode` AS `cant_bode`,`net_bodega`.`max_bode` AS `max_bode`,`net_bodega`.`min_bode` AS `min_bode`,`net_bodega`.`preci_bode` AS `preci_bode`,`net_bodega`.`vent1_bode` AS `vent1_bode`,`net_bodega`.`vent2_bode` AS `vent2_bode`,`net_bodega`.`vent3_bode` AS `vent3_bode`,`net_bodega`.`imag_bode` AS `imag_bode`,`net_categoria`.`cod_cate` AS `cod_cate`,`net_categoria`.`nom_cate` AS `nom_cate` from (`net_bodega` join `net_categoria` on((`net_bodega`.`cate_bode` = `net_categoria`.`cod_cate`))) ;
 
 -- --------------------------------------------------------
 
@@ -525,7 +537,7 @@ CREATE VIEW `vista_bodega`  AS  select `net_bodega`.`cod_bode` AS `cod_bode`,`ne
 --
 DROP TABLE IF EXISTS `vista_capsula`;
 
-CREATE VIEW `vista_capsula`  AS  select `net_capsula`.`cod_capsu` AS `cod_capsu`,`net_capsula`.`serv_capsu` AS `serv_capsu`,`net_tipo`.`cod_tip` AS `cod_tip`,`net_tipo`.`nom_tip` AS `nom_tip`,`net_tipo`.`det_tip` AS `det_tip` from (`net_capsula` join `net_tipo` on((`net_capsula`.`serv_capsu` = `net_tipo`.`cod_tip`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_capsula`  AS  select `net_capsula`.`cod_capsu` AS `cod_capsu`,`net_capsula`.`serv_capsu` AS `serv_capsu`,`net_tipo`.`cod_tip` AS `cod_tip`,`net_tipo`.`nom_tip` AS `nom_tip`,`net_tipo`.`det_tip` AS `det_tip` from (`net_capsula` join `net_tipo` on((`net_capsula`.`serv_capsu` = `net_tipo`.`cod_tip`))) ;
 
 -- --------------------------------------------------------
 
@@ -534,7 +546,7 @@ CREATE VIEW `vista_capsula`  AS  select `net_capsula`.`cod_capsu` AS `cod_capsu`
 --
 DROP TABLE IF EXISTS `vista_capsu_det`;
 
-CREATE VIEW `vista_capsu_det`  AS  select `net_det_caps`.`id_capsu` AS `id_capsu`,`net_det_caps`.`cod_capsu` AS `cod_capsu`,`net_det_caps`.`cod_bod` AS `cod_bod`,`vista_bodega`.`cod_bode` AS `cod_bode`,`vista_bodega`.`nom_bode` AS `nom_bode`,`vista_bodega`.`cod_cate` AS `cod_cate`,`vista_bodega`.`nom_cate` AS `nom_cate`,`vista_bodega`.`cant_bode` AS `cant_bode`,`vista_bodega`.`vent1_bode` AS `vent1_bode` from (`net_det_caps` join `vista_bodega` on((`net_det_caps`.`cod_bod` = `vista_bodega`.`cod_bode`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_capsu_det`  AS  select `net_det_caps`.`id_capsu` AS `id_capsu`,`net_det_caps`.`cod_capsu` AS `cod_capsu`,`net_det_caps`.`cod_bod` AS `cod_bod`,`vista_bodega`.`cod_bode` AS `cod_bode`,`vista_bodega`.`nom_bode` AS `nom_bode`,`vista_bodega`.`cod_cate` AS `cod_cate`,`vista_bodega`.`nom_cate` AS `nom_cate`,`vista_bodega`.`cant_bode` AS `cant_bode`,`vista_bodega`.`vent1_bode` AS `vent1_bode` from (`net_det_caps` join `vista_bodega` on((`net_det_caps`.`cod_bod` = `vista_bodega`.`cod_bode`))) ;
 
 -- --------------------------------------------------------
 
@@ -543,7 +555,7 @@ CREATE VIEW `vista_capsu_det`  AS  select `net_det_caps`.`id_capsu` AS `id_capsu
 --
 DROP TABLE IF EXISTS `vista_detalle_pedido`;
 
-CREATE VIEW `vista_detalle_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_ped`,`net_det_pedi`.`cod_ped` AS `cod_ped`,`net_det_pedi`.`cant_ped` AS `cant_ped`,`net_det_pedi`.`pre_ped` AS `pre_ped`,`net_det_pedi`.`tot_ped` AS `tot_ped`,`net_bodega`.`nom_bode` AS `nom_bode`,`net_bodega`.`cod_bode` AS `cod_bode`,`net_categoria`.`nom_cate` AS `nom_cate`,`net_categoria`.`cod_cate` AS `cod_cate` from ((`net_det_pedi` join `net_bodega` on((`net_det_pedi`.`bod_ped` = `net_bodega`.`cod_bode`))) join `net_categoria` on((`net_bodega`.`cate_bode` = `net_categoria`.`cod_cate`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_detalle_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_ped`,`net_det_pedi`.`cod_ped` AS `cod_ped`,`net_det_pedi`.`cant_ped` AS `cant_ped`,`net_det_pedi`.`pre_ped` AS `pre_ped`,`net_det_pedi`.`tot_ped` AS `tot_ped`,`net_bodega`.`nom_bode` AS `nom_bode`,`net_bodega`.`cod_bode` AS `cod_bode`,`net_categoria`.`nom_cate` AS `nom_cate`,`net_categoria`.`cod_cate` AS `cod_cate` from ((`net_det_pedi` join `net_bodega` on((`net_det_pedi`.`bod_ped` = `net_bodega`.`cod_bode`))) join `net_categoria` on((`net_bodega`.`cate_bode` = `net_categoria`.`cod_cate`))) ;
 
 -- --------------------------------------------------------
 
@@ -552,7 +564,7 @@ CREATE VIEW `vista_detalle_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_pe
 --
 DROP TABLE IF EXISTS `vista_det_pedido`;
 
-CREATE VIEW `vista_det_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_ped`,`net_det_pedi`.`cod_ped` AS `cod_ped`,`net_det_pedi`.`cant_ped` AS `cant_ped`,`net_det_pedi`.`bod_ped` AS `bod_ped`,`net_det_pedi`.`pre_ped` AS `pre_ped`,`net_det_pedi`.`tot_ped` AS `tot_ped`,`net_bodega`.`nom_bode` AS `nom_bode` from (`net_det_pedi` join `net_bodega` on((`net_det_pedi`.`bod_ped` = `net_bodega`.`cod_bode`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_det_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_ped`,`net_det_pedi`.`cod_ped` AS `cod_ped`,`net_det_pedi`.`cant_ped` AS `cant_ped`,`net_det_pedi`.`bod_ped` AS `bod_ped`,`net_det_pedi`.`pre_ped` AS `pre_ped`,`net_det_pedi`.`tot_ped` AS `tot_ped`,`net_bodega`.`nom_bode` AS `nom_bode` from (`net_det_pedi` join `net_bodega` on((`net_det_pedi`.`bod_ped` = `net_bodega`.`cod_bode`))) ;
 
 -- --------------------------------------------------------
 
@@ -561,7 +573,7 @@ CREATE VIEW `vista_det_pedido`  AS  select `net_det_pedi`.`id_ped` AS `id_ped`,`
 --
 DROP TABLE IF EXISTS `vista_pedidos`;
 
-CREATE VIEW `vista_pedidos`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_cliente`.`ced_cli` AS `ced_cli`,`net_usuario`.`ced_usu` AS `ced_usu`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,concat(`net_usuario`.`nom_usu`,' ',`net_usuario`.`ape_usu`) AS `tecnico`,`net_tipo`.`cod_tip` AS `cod_tip`,`net_tipo`.`nom_tip` AS `nom_tip`,`net_tipo`.`det_tip` AS `det_tip`,`net_pedido`.`es_factura` AS `es_factura` from (((`net_pedido` join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_usuario` on((`net_pedido`.`tecn_ped` = `net_usuario`.`ced_usu`))) join `net_tipo` on((`net_pedido`.`serv_ped` = `net_tipo`.`cod_tip`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_pedidos`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_cliente`.`ced_cli` AS `ced_cli`,`net_usuario`.`ced_usu` AS `ced_usu`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,concat(`net_usuario`.`nom_usu`,' ',`net_usuario`.`ape_usu`) AS `tecnico`,`net_tipo`.`cod_tip` AS `cod_tip`,`net_tipo`.`nom_tip` AS `nom_tip`,`net_tipo`.`det_tip` AS `det_tip`,`net_pedido`.`es_factura` AS `es_factura` from (((`net_pedido` join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_usuario` on((`net_pedido`.`tecn_ped` = `net_usuario`.`ced_usu`))) join `net_tipo` on((`net_pedido`.`serv_ped` = `net_tipo`.`cod_tip`))) ;
 
 -- --------------------------------------------------------
 
@@ -570,7 +582,7 @@ CREATE VIEW `vista_pedidos`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,`net
 --
 DROP TABLE IF EXISTS `vista_ped_cliente`;
 
-CREATE VIEW `vista_ped_cliente`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`serv_ped` AS `serv_ped`,`net_pedido`.`tecn_ped` AS `tecn_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_pedido`.`es_factura` AS `es_factura`,`net_cliente`.`ced_cli` AS `ced_cli`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,`net_tipo`.`nom_tip` AS `nom_tip` from ((`net_pedido` join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_tipo` on((`net_pedido`.`serv_ped` = `net_tipo`.`cod_tip`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_ped_cliente`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`serv_ped` AS `serv_ped`,`net_pedido`.`tecn_ped` AS `tecn_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_pedido`.`es_factura` AS `es_factura`,`net_cliente`.`ced_cli` AS `ced_cli`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,`net_tipo`.`nom_tip` AS `nom_tip` from ((`net_pedido` join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_tipo` on((`net_pedido`.`serv_ped` = `net_tipo`.`cod_tip`))) ;
 
 -- --------------------------------------------------------
 
@@ -579,7 +591,7 @@ CREATE VIEW `vista_ped_cliente`  AS  select `net_pedido`.`cod_ped` AS `cod_ped`,
 --
 DROP TABLE IF EXISTS `vista_trabajo`;
 
-CREATE VIEW `vista_trabajo`  AS  select `net_trabajo`.`tec_trab` AS `tec_trab`,`net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`serv_ped` AS `serv_ped`,`net_pedido`.`clie_ped` AS `clie_ped`,`net_pedido`.`tecn_ped` AS `tecn_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_pedido`.`es_factura` AS `es_factura`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,`net_tipo`.`nom_tip` AS `nom_tip` from (((`net_trabajo` join `net_pedido` on((`net_trabajo`.`cod_trab` = `net_pedido`.`cod_ped`))) join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_tipo` on((`net_tipo`.`cod_tip` = `net_pedido`.`serv_ped`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_trabajo`  AS  select `net_trabajo`.`tec_trab` AS `tec_trab`,`net_pedido`.`cod_ped` AS `cod_ped`,`net_pedido`.`serv_ped` AS `serv_ped`,`net_pedido`.`clie_ped` AS `clie_ped`,`net_pedido`.`tecn_ped` AS `tecn_ped`,`net_pedido`.`fech_ped` AS `fech_ped`,`net_pedido`.`fevis_ped` AS `fevis_ped`,`net_pedido`.`hovis_ped` AS `hovis_ped`,`net_pedido`.`esta_ped` AS `esta_ped`,`net_pedido`.`es_factura` AS `es_factura`,concat(`net_cliente`.`nom_cli`,' ',`net_cliente`.`ape_cli`) AS `cliente`,`net_tipo`.`nom_tip` AS `nom_tip` from (((`net_trabajo` join `net_pedido` on((`net_trabajo`.`cod_trab` = `net_pedido`.`cod_ped`))) join `net_cliente` on((`net_pedido`.`clie_ped` = `net_cliente`.`ced_cli`))) join `net_tipo` on((`net_tipo`.`cod_tip` = `net_pedido`.`serv_ped`))) ;
 
 -- --------------------------------------------------------
 
@@ -588,7 +600,7 @@ CREATE VIEW `vista_trabajo`  AS  select `net_trabajo`.`tec_trab` AS `tec_trab`,`
 --
 DROP TABLE IF EXISTS `vista_trabajores`;
 
-CREATE VIEW `vista_trabajores`  AS  select `trabajo_detalle`.`id_empl` AS `id_empl`,`trabajo_detalle`.`cod_trab` AS `cod_trab`,`trabajo_detalle`.`cod_id` AS `cod_id`,concat(`net_usuario`.`nom_usu`,' ',`net_usuario`.`ape_usu`) AS `empleado` from (`net_usuario` join `trabajo_detalle` on((`net_usuario`.`ced_usu` = `trabajo_detalle`.`id_empl`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_trabajores`  AS  select `trabajo_detalle`.`id_empl` AS `id_empl`,`trabajo_detalle`.`cod_trab` AS `cod_trab`,`trabajo_detalle`.`cod_id` AS `cod_id`,concat(`net_usuario`.`nom_usu`,' ',`net_usuario`.`ape_usu`) AS `empleado` from (`net_usuario` join `trabajo_detalle` on((`net_usuario`.`ced_usu` = `trabajo_detalle`.`id_empl`))) ;
 
 --
 -- Índices para tablas volcadas
