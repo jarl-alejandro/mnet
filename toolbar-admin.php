@@ -47,6 +47,13 @@
               </ul>
           </li>
           <li>
+              <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Planes de Internet<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                  <li><a href="../../planes/internet">Internet</a></li>
+                  <li><a href="../../planes/pagos">Pagos Mensuales</a></li>
+              </ul>
+          </li>
+          <li>
               <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Registro<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                   <li>
@@ -60,6 +67,9 @@
                   </li>
                   <li>
                       <a href="../../registro/bodega">Bodega</a>
+                  </li>
+                  <li>
+                      <a href="../../registro/plan-internet">Plan de Internet</a>
                   </li>
                   <li>
                       <a href="../../registro/kardex">Kardex</a>
@@ -120,16 +130,16 @@
               <a href="#"><i class="fa fa-wrench fa-fw"></i>&nbsp;Estadistica<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                   <li>
-                      <a href="panels-wells.html">Trabajos terminados</a>
+                      <a href="../../estadistica/trabajos-terminados">Trabajos terminados</a>
                   </li>
                   <li>
-                      <a href="buttons.html">Mejor empleado</a>
+                      <a href="../../estadistica/mejores-empleados">Mejor empleado</a>
                   </li>
                   <li>
-                      <a href="notifications.html">Mejores clientes</a>
+                      <a href="../../estadistica/mejores-clientes">Mejores clientes</a>
                   </li>
                   <li>
-                      <a href="typography.html">Rotacion de imventarios</a>
+                      <a href="../../estadistica/rotacion-inventarios">Rotacion de inventarios</a>
                   </li>
               </ul>
               <!-- second-level-items -->

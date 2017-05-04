@@ -1,4 +1,6 @@
 <?php session_start();
+require '../../service/generar_pagos.php';
+
 if(!isset($_SESSION["b81ac816c94556b2f033f9c1a6fce82e76cb90cb"])){
   header("Location: ../../login.php");
 }

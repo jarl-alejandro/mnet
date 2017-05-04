@@ -36,6 +36,11 @@ include "conexion/conexion.php";
         <link rel="stylesheet" href="assets/css/material.css" />
       <link rel="stylesheet" href="assets/css/client.css">
 
+<style>
+
+#miModal{display:none;}
+
+</style>
     </head>
     <body id="productos">
       <div id="toast"></div>
@@ -74,7 +79,7 @@ include "conexion/conexion.php";
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="http://disputebills.com"><img src="images/logom.png" style="padding-top:0px;">    </a>
+        <a class="navbar-brand" href="http://disputebills.com" ><img src="assets/img//logo.jpg" >    </a>
       </div>
       <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -106,7 +111,7 @@ include "conexion/conexion.php";
 <section>   <!-- inicio del area de trabajo-->
 <div class="container-fluid"><!-- iniio del area de trabajo-->
 <div class="row"><!-- cuadro principal-->
-<div class="col-md-8 col-sm-8">
+<div class="col-md-8 col-sm-7" style="margin-top:5px; padding-top:6px;">
 
             <div class="carousel slide" id="carousel-622692">
                 <ol class="carousel-indicators">
@@ -146,8 +151,8 @@ include "conexion/conexion.php";
     </div> 
     <a class="left carousel-control" href="#carousel-622692" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
      <a class="right carousel-control" href="#carousel-622692" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-
   </div><!-- fin slider-->
+<div class="clearfix">&nbsp;</div>
 
                 <div class="col-md-4">
                     <div class="thumbnail" style=" height:250px!important;">
@@ -234,7 +239,7 @@ $index = 0;
 <section id="Tab_Filter" style="height: 100px!important;">
   <article></article>
   <?php while($row = $query->fetch()){ ?>
-  <article class="col-md-6">
+  <article class="col-md-4">
 
     <div class="panel panel-primary" style="position:relative; cursor:pointer">
 
@@ -365,6 +370,8 @@ Venta de Computadoras, partes y accesorios.
     <?php include "template/formCliente.php" ?>
   </article>
 </section>
+
+
 <!-- area de trabajo-->
 
 
@@ -419,7 +426,8 @@ Venta de Computadoras, partes y accesorios.
     })
   })()
 </script>
-    
+
+
         </body>
 </html>
 
